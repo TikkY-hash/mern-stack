@@ -10,4 +10,5 @@ Video: https://drive.google.com/file/d/1R8ycTMnfizSRkplJGSBmK1wESbf-X5QV/view?us
 
 Technologies:
 Frontend: React, Redux-toolit, scss, axios, classnames, react-beautiful-dnd, vite
-Backend: NodeJs, express, nodemon, jsonwebtoken, mongoose, express-validator, bcrypt, cors
+Backend: NodeJs, express, nodemon, jsonwebtoken, mongoose, express-validator, bcrypt, cors,mongoose
+Database: mongodb
