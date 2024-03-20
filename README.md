@@ -12,3 +12,6 @@ Technologies:
 Frontend: React, Redux-toolit, scss, axios, classnames, react-beautiful-dnd, vite
 Backend: NodeJs, express, nodemon, jsonwebtoken, mongoose, express-validator, bcrypt, cors,mongoose
 Database: mongodb
+
+Architecture:
+Mern stack - 2 folders with client and server
