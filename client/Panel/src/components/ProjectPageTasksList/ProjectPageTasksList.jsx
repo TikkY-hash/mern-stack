@@ -1,6 +1,5 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getTasks } from '../../store/Tasks/tasksThunk/tasksThunk';
-import { useSelector } from 'react-redux';
 import { getTasksSelector } from '../../store/Tasks/tasksSelectors/tasksSelectors';
 import ProjectPageTasksListItem from '../ProjectPageTasksListItem';
 import { useEffect, useState } from 'react';

@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import cn from 'classnames';
-import TextArea from '../TextArea';
 import { useState } from 'react';
 import { getSubTasks } from '../../store/SubTasks/subTasksThunk/subTasksThunk';
 import { getSubTasksSelectors } from '../../store/SubTasks/subTasksSelectors/subTasksSelectors';
