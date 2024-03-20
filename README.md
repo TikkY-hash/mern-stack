@@ -9,5 +9,9 @@ Navigate to the server folder, type yarn in the console, and then type yarn star
 Video: https://drive.google.com/file/d/1R8ycTMnfizSRkplJGSBmK1wESbf-X5QV/view?usp=sharing
 
 Technologies:
-Frontend: React, Redux-toolit, scss, axios, classnames, react-beautiful-dnd
-Backend: NodeJs, express, nodemon, jsonwebtoken, mongoose, express-validator, bcrypt, cors
+Frontend: React, Redux-toolit, scss, axios, classnames, react-beautiful-dnd, vite
+Backend: NodeJs, express, nodemon, jsonwebtoken, mongoose, express-validator, bcrypt, cors,mongoose
+Database: mongodb
+
+Architecture:
+Mern stack - 2 folders with client and server
