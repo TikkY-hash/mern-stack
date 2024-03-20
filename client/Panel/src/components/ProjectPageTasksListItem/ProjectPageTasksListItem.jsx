@@ -85,7 +85,7 @@ const TasksListItem = ({ task, projectId }) => {
             )}
           </div>
         </div>
-        <h1 className="taskDescription">Description: </h1>
+        <h1 className="taskTitleDescription">Description: </h1>
         <p className="taskDescription">{task.description}</p>
       </li>
       {isSubTasksOpen && (

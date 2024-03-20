@@ -1,6 +1,14 @@
 .taskTitle {
   font-size: 20px;
   margin-left: 16px;
+  position: relative;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  overflow-wrap: break-word;
+  -webkit-line-clamp: 1;
+  max-width: 280px;
 }
 
 .taskTitleWrapper {
@@ -10,6 +18,11 @@
   justify-content: space-between;
 }
 
+.taskTitleDescription {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
 .taskTitleContainer {
   display: flex;
   align-items: center;
@@ -17,11 +30,18 @@
 
 .taskDescription {
   font-size: 20px;
-}
-
-.taskDescription {
-  font-size: 20px;
   margin-bottom: 4px;
+
+  position: relative;
+
+  display: -webkit-box;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  -webkit-box-orient: vertical;
+  overflow-wrap: break-word;
+  -webkit-line-clamp: 1;
 }
 
 .projectTasksListItemWrapper {
