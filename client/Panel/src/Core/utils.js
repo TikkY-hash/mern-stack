@@ -19,5 +19,4 @@ const useIdFromUrl = () => {
   return id;
 };
 
-
 export { debounce, useIdFromUrl };

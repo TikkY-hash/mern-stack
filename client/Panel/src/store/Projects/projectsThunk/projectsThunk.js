@@ -2,9 +2,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import axios from '../../../utils';
 
-export const getProjects = createAsyncThunk('projects/get', async (params , thunkAPI) => {
+export const getProjects = createAsyncThunk('projects/get', async (params, thunkAPI) => {
   try {
-    const response = await axios.get('projects', {params});
+    const response = await axios.get('projects', { params });
 
     return response.data;
   } catch (error) {

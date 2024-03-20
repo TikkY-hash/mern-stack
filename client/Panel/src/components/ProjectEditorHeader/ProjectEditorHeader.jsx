@@ -24,7 +24,6 @@ const ProjectEditorHeader = ({ project }) => {
     handleUsersSearchUpdate(value, 'title');
   };
 
-
   return (
     <div className="header" style={{ backgroundImage }}>
       <Link to="/admin">

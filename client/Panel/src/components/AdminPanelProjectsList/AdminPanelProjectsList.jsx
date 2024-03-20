@@ -7,10 +7,9 @@ import './AdminPanelProjectsList.scss';
 const AdminPanelProjectsList = ({ isEditor, term }) => {
   const projects = useSelector(getProjectsSelector);
 
-  const filteredProjects = term ? 
-  projects.filter(project =>
-    project.title.toLowerCase().includes(term.toLowerCase())
-  ) : projects;
+  const filteredProjects = term
+    ? projects.filter((project) => project.title.toLowerCase().includes(term.toLowerCase()))
+    : projects;
 
   return (
     <ul className="adminPanelProjectsListWrapper">
@@ -19,6 +18,6 @@ const AdminPanelProjectsList = ({ isEditor, term }) => {
       ))}
     </ul>
   );
-}
+};
 
 export default AdminPanelProjectsList;

@@ -6,6 +6,10 @@
     "plugin:import/recommended",
     "prettier"
   ],
+  "env": {
+    "browser": true, 
+    "node": true 
+  },
   "settings": {
     "react": {
       "version": "detect"
@@ -37,6 +41,7 @@
     "react-hooks/exhaustive-deps": "off",
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
-    "quotes": ["error", "single"]
+    "quotes": ["error", "single"],
+    "no-restricted-syntax": "off"
   }
 }

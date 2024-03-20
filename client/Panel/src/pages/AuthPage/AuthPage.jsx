@@ -8,7 +8,7 @@ import { authLogin, authRegister } from '../../store/Users/authThunk/authThunk';
 
 const AuthPage = () => {
   const dispatch = useDispatch();
-  const isError = useSelector(getAuthError)
+  const isError = useSelector(getAuthError);
   const [isSignIn, setIsSign] = useState(true);
 
   const handleSubmit = (value) => {
@@ -21,7 +21,7 @@ const AuthPage = () => {
 
   return (
     <div className="root">
-      <AuthForm isSignIn={isSignIn} setIsSignIn={setIsSign} handleSubmitForm={handleSubmit} isError={isError}/>
+      <AuthForm isSignIn={isSignIn} setIsSignIn={setIsSign} handleSubmitForm={handleSubmit} isError={isError} />
     </div>
   );
 };

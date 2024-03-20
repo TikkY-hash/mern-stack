@@ -2,7 +2,7 @@ import { useState } from 'react';
 import cn from 'classnames';
 import './AuthForm.scss';
 
-const AuthForm = ({ isSignIn = true, setIsSignIn, handleSubmitForm , isError}) => {
+const AuthForm = ({ isSignIn = true, setIsSignIn, handleSubmitForm, isError }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -76,7 +76,7 @@ const AuthForm = ({ isSignIn = true, setIsSignIn, handleSubmitForm , isError}) =
         <button type="submit" className="signin">
           {`Sign ${isSignIn ? 'in' : 'up'}`}
         </button>
-        {isError && <span className='errorSpan'>Something going wrong</span>}
+        {isError && <span className="errorSpan">Something going wrong</span>}
       </form>
     </div>
   );

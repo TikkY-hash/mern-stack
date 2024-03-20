@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { authRegister , authLogin } from '../authThunk/authThunk';
+import { authRegister, authLogin } from '../authThunk/authThunk';
 
 const initialState = {
   token: localStorage.getItem('token') || null,
@@ -12,7 +12,7 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    resetToken: state => {
+    resetToken: (state) => {
       state.token = null;
       localStorage.removeItem('token');
     },
