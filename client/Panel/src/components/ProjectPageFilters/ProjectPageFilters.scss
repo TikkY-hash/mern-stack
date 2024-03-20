@@ -1,0 +1,49 @@
+.projectPageFiltersWrapper {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 8px;
+  margin-top: 32px;
+  width: 100%;
+  max-width: 526px;
+  box-sizing: border-box;
+
+  @media (max-width: 427px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.filterButton {
+  width: 120px;
+  height: 40px;
+  border: none;
+  background: #0084ff61;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s;
+
+  box-sizing: border-box;
+  margin: 0 12px;
+
+  &:hover {
+    background: #007cff;
+  }
+
+  @media (max-width: 427px) {
+    margin: 0;
+    margin-bottom: 12px;
+    width: 100%;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.selectedButton {
+  background: #007cff;
+}

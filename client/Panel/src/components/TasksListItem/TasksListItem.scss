@@ -1,0 +1,112 @@
+.tasksListItemWrapper {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-bottom: 16px;
+
+  width: 100%;
+  max-width: 408px;
+  height: 300px;
+  box-sizing: border-box;
+  background: white;
+}
+
+.tasksListItemTitle,
+.tasksListItemDescription {
+  border: 1px solid grey;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: black;
+  caret-color: black;
+  height: 40px;
+  font-size: 18px;
+
+  &::placeholder {
+    color: black;
+  }
+}
+
+.tasksListItemTitle {
+  margin-top: 20px;
+}
+
+.tasksListItemDescription {
+  margin-top: 12px;
+}
+
+.deleteIconWrapperList {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  background: #064588ce;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+
+  svg {
+    background: white;
+    cursor: pointer;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 2px;
+  }
+}
+
+.isDisabledDndIconWrapperList {
+  background: white;
+}
+
+.addSubTaskButton {
+  height: 40px;
+  border: none;
+  background: #007cff;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.handleGetSubTasksIcon {
+  transition: 0.3s;
+
+  svg {
+    transform: rotate(180deg);
+    cursor: pointer;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 2px;
+  }
+}
+
+.activeGetSubTaskIcon {
+  transform: rotate(180deg);
+}
+
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  max-width: 100px;
+  height: 21px;
+
+  h1 {
+    margin-left: 8px;
+    font-size: 18px;
+  }
+}
+
+.checkbox {
+  -webkit-appearance: auto !important;
+  width: 20px;
+  height: 16px;
+}
+
+.contentWrapper {
+  padding: 0px 12px;
+}
