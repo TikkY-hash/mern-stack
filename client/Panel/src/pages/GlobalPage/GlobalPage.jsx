@@ -7,30 +7,38 @@ import { useEffect } from 'react';
 import AdminPanelProjectEditor from '../AdminPanelProjectEditor';
 import ProjectsPage from '../ProjectsPage';
 import ProjectPage from '../ProjectPage';
+import Header from '../../components/Header';
+import NotFoundPage from '../../components/NotFoundPage';
 
 const GlobalPage = () => {
   const token = useSelector(getAuthToken);
   const navigate = useNavigate();
   const location = useLocation();
+  const isAuth = location.pathname === '/';
+  const isShowHeader = location.pathname !== '/';
 
   useEffect(() => {
     if (!token) {
       navigate('/');
     } else {
-      if (location.pathname === '/') {
+      if (isAuth) {
         navigate('/projects');
       }
     }
   }, [token]);
 
   return (
-    <Routes>
-      <Route path="/" element={<AuthPage />} />
-      <Route path="/admin" element={<AdminPanel />} />
-      <Route path="/project/editor/:id" element={<AdminPanelProjectEditor />} />
-      <Route path="/projects" element={<ProjectsPage />} />
-      <Route path="/project/:id" element={<ProjectPage />} />
-    </Routes>
+    <>
+      {isShowHeader && <Header />}
+      <Routes>
+        <Route path="/" element={<AuthPage />} />
+        <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/project/editor/:id" element={<AdminPanelProjectEditor />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/project/:id" element={<ProjectPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </>
   );
 };
 

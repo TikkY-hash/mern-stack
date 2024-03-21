@@ -2,7 +2,7 @@ import { addProjects, getProjects } from '../projectsThunk/projectsThunk';
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  loading: false,
+  loading: true,
   error: null,
   projects: [],
 };

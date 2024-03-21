@@ -8,7 +8,7 @@ import { deleteProject } from '../../store/Project/projectThunk/projectThunk';
 const AdminPanelProjectsListItem = ({ project, isEditor = true }) => {
   const dispatch = useDispatch();
 
-  const backgroundImage = `url(${img || project?.img})`;
+  const backgroundImage = `url(${img})`;
 
   const handleDeleteProject = (event) => {
     event.preventDefault();

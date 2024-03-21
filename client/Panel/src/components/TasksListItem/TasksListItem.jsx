@@ -11,6 +11,7 @@ import { getSubTasksSelectors } from '../../store/SubTasks/subTasksSelectors/sub
 import { Draggable } from 'react-beautiful-dnd';
 
 import './TasksListItem.scss';
+import Button from '../Button';
 
 const TasksListItem = ({ task, projectId, isSubTask = false, position }) => {
   const dispatch = useDispatch();
@@ -163,9 +164,9 @@ const TasksListItem = ({ task, projectId, isSubTask = false, position }) => {
                 )}
               </div>
 
-              <button className="addSubTaskButton" onClick={handleAddSubTasks}>
+              <Button className="addSubTaskButton" onClick={handleAddSubTasks}>
                 Add subtask
-              </button>
+              </Button>
             </div>
           </li>
           {isSubTasksOpen && (

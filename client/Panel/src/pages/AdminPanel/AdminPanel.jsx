@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { getProjects, addProjects } from '../../store/Projects/projectsThunk/projectsThunk';
 import AdminPanelProjectsList from '../../components/AdminPanelProjectsList';
+import { debounce } from '../../Core/utils';
+import Button from '../../components/Button';
 
 import './AdminPanel.scss';
 import Container from '../../components/Container';
 import Input from '../../components/Input';
-import { resetToken } from '../../store/Users/authSlice/authSlice';
 
 const AdminPanel = () => {
   const dispatch = useDispatch();
@@ -18,25 +19,27 @@ const AdminPanel = () => {
 
   const handleClick = () => dispatch(addProjects());
 
-  const handleLogout = () => {
-    dispatch(resetToken());
-  };
+  const handleGetProjects = useCallback(
+    debounce((value) => dispatch(getProjects({ query: value })), 500),
+    [],
+  );
+
+  useEffect(() => {
+    handleGetProjects(term);
+  }, [term]);
 
   return (
     <Container>
       <div className="adminPanelContainer">
         <div className="inputWrapper">
           <Input placeholder="Enter your project" onChange={setTerm} value={term} />
-          <button className="button" onClick={handleLogout}>
-            Exit
-          </button>
         </div>
         <div>
-          <AdminPanelProjectsList term={term} />
+          <AdminPanelProjectsList />
         </div>
-        <button className="addProjectButton" onClick={handleClick}>
+        <Button className="addProjectButton" onClick={handleClick}>
           Add project
-        </button>
+        </Button>
       </div>
     </Container>
   );

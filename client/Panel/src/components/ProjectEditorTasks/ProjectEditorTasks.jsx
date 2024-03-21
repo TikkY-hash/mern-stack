@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getTasks, addTasks } from '../../store/Tasks/tasksThunk/tasksThunk';
 import { getTasksSelector } from '../../store/Tasks/tasksSelectors/tasksSelectors';
 import TasksList from '../TasksList';
+import Button from '../Button';
 
 const ProjectEditorTasks = ({ projectId }) => {
   const dispatch = useDispatch();
@@ -19,9 +20,9 @@ const ProjectEditorTasks = ({ projectId }) => {
   return (
     <div className="projectEditorTasksWrapper">
       <TasksList tasks={tasks} projectId={projectId} />
-      <button className="taskButton" onClick={handleAddTask}>
+      <Button className="taskButton" onClick={handleAddTask}>
         Add task
-      </button>
+      </Button>
     </div>
   );
 };

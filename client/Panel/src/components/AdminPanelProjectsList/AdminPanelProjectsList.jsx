@@ -1,19 +1,19 @@
 import { useSelector } from 'react-redux';
-import { getProjectsSelector } from '../../store/Projects/projectsSelectors/projectsSelectors';
+import { getProjectsSelector, getProjectsLoading } from '../../store/Projects/projectsSelectors/projectsSelectors';
 import AdminPanelProjectsListItem from '../AdminPanelProjectsListItem';
 
 import './AdminPanelProjectsList.scss';
+import EmptyStub from '../EmptyStub';
 
-const AdminPanelProjectsList = ({ isEditor, term }) => {
+const AdminPanelProjectsList = ({ isEditor }) => {
   const projects = useSelector(getProjectsSelector);
+  const isLoading = useSelector(getProjectsLoading);
 
-  const filteredProjects = term
-    ? projects.filter((project) => project.title.toLowerCase().includes(term.toLowerCase()))
-    : projects;
+  if (!isLoading && !projects.length) return <EmptyStub />;
 
   return (
     <ul className="adminPanelProjectsListWrapper">
-      {filteredProjects.map((project) => (
+      {projects.map((project) => (
         <AdminPanelProjectsListItem key={project._id} project={project} isEditor={isEditor} />
       ))}
     </ul>

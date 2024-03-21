@@ -41,7 +41,7 @@ const AuthForm = ({ isSignIn = true, setIsSignIn, handleSubmitForm, isError }) =
   return (
     <div className="login">
       <h2
-        className={cn('active', {
+        className={cn('activeItem', {
           nonactive: !isSignIn,
         })}
         onClick={() => handleChangeSign(true)}
@@ -49,7 +49,7 @@ const AuthForm = ({ isSignIn = true, setIsSignIn, handleSubmitForm, isError }) =
         Sign in
       </h2>
       <h2
-        className={cn('active', {
+        className={cn('activeItem', {
           nonactive: isSignIn,
         })}
         onClick={() => handleChangeSign(false)}

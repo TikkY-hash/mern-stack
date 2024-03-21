@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { getProjects } from '../../store/Projects/projectsThunk/projectsThunk';
 import Input from '../../components/Input';
-import { resetToken } from '../../store/Users/authSlice/authSlice';
+import { debounce } from '../../Core/utils';
+import './ProjectsPage.scss';
 
 import AdminPanelProjectsList from '../../components/AdminPanelProjectsList';
 
@@ -16,20 +17,22 @@ const ProjectsPage = () => {
     dispatch(getProjects());
   }, [dispatch]);
 
-  const handleLogout = () => {
-    dispatch(resetToken());
-  };
+  const handleGetProjects = useCallback(
+    debounce((value) => dispatch(getProjects({ query: value })), 500),
+    [],
+  );
+
+  useEffect(() => {
+    handleGetProjects(term);
+  }, [term]);
 
   return (
     <Container>
       <div className="inputWrapper">
         <Input placeholder="Enter your project" onChange={setTerm} value={term} />
-        <button className="button" onClick={handleLogout}>
-          Exit
-        </button>
       </div>
       <div className="adminPanelContainer">
-        <AdminPanelProjectsList isEditor={false} term={term} />
+        <AdminPanelProjectsList isEditor={false} />
       </div>
     </Container>
   );
