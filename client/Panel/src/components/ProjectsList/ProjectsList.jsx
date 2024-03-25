@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { getProjectsSelector } from '../../store/Projects/projectsSelectors/projectsSelectors';
+import { getProjectsSelector , getProjectsLoadingSelector } from '../../store/Projects/projectsSelectors/projectsSelectors';
 import { addProjects, deleteProject, updateProject } from '../../store/Projects/projectsThunk/projectsThunk';
 import { getProject } from '../../store/Project/projectThunk/projectThunk';
 import ProjectListTitle from '../ProjectListTitle';
@@ -11,6 +11,7 @@ import ProjectListButton from '../ProjectListButton';
 import './ProjectsList.scss';
 import EmptyStub from '../EmptyStub';
 import { deleteCurrentProject } from '../../store/Project/projectSlice/projectSlice';
+import { CircularProgress } from '@mui/material';
 
 const ProjectsList = () => {
   const dispatch = useDispatch();
@@ -19,12 +20,14 @@ const ProjectsList = () => {
   const [showModal, handleShowModal] = useState({ show: false, projectId: null });
 
   const projects = useSelector(getProjectsSelector);
+  const isLoading = useSelector(getProjectsLoadingSelector)
 
   const handleChange = (_, newValue) => {
     const id = projects[newValue]._id;
     dispatch(getProject({ id }));
     setValue(newValue);
   };
+
 
   const handleAddProjects = (projectValue) => {
     if (!showModal.projectId) {
@@ -48,20 +51,27 @@ const ProjectsList = () => {
     dispatch(deleteProject({ id }));
   };
 
+
   return (
     <div className="rootTabs">
       <div className="projectTabs">
         <ProjectListTitle />
-        <ProjectsListTabs
+        {!isLoading ? (
+          <ProjectsListTabs
           handleChange={handleChange}
           handleDeleteProject={handleDeleteProject}
           handleShowModal={handleShowModal}
           projects={projects}
           value={value}
         />
+        ) : 
+         <div className='loadingWrapper'>
+           <CircularProgress />
+         </div>
+        }
         <ProjectListButton handleShowModal={handleShowModal} />
       </div>
-      {projects.length ? <ProjectTabPanel /> : <EmptyStub />}
+      {projects.length || isLoading ? <ProjectTabPanel /> : <EmptyStub />}
       <ProjectModal
         handleCloseModal={() => handleShowModal({ show: false, projectId: null })}
         isShowModal={showModal.show}

@@ -20,6 +20,10 @@ export const projectSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+    .addCase(getProject.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    })
       .addCase(getProject.fulfilled, (state, action) => {
         state.loading = false;
         state.project = action.payload;
