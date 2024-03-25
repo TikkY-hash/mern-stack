@@ -10,6 +10,8 @@ import ProjectsListTabs from '../ProjectsListTabs';
 import ProjectListButtons from '../ProjectListButtons';
 import './ProjectsList.scss';
 import EmptyStub from '../EmptyStub';
+import { deleteProjectReducer } from '../../store/Projects/projectsSlice/projectsSlice';
+import { deleteCurrentProject } from '../../store/Project/projectSlice/projectSlice';
 
 const ProjectsList = () => {
   const dispatch = useDispatch();
@@ -43,6 +45,7 @@ const ProjectsList = () => {
       handleChange('', value - 1);
     }
 
+    dispatch(deleteCurrentProject())
     dispatch(deleteProject({ id }));
   };
 

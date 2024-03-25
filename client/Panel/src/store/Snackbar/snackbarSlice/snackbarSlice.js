@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export const snackbarSlice = createSlice({
-  name: 'auth',
+  name: 'snackbar',
   initialState,
   reducers: {
     updateStatusAndVisibility: (state, action) => {

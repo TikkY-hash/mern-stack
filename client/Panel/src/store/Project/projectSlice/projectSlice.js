@@ -11,6 +11,13 @@ const initialState = {
 export const projectSlice = createSlice({
   name: 'project',
   initialState,
+  reducers: {
+    deleteCurrentProject: (state) => {
+      state.loading = true;
+      state.error = null;
+      state.project = {};
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getProject.fulfilled, (state, action) => {
@@ -23,5 +30,7 @@ export const projectSlice = createSlice({
       });
   },
 });
+
+export const { deleteCurrentProject } = projectSlice.actions; 
 
 export default projectSlice.reducer;

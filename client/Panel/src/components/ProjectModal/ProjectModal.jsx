@@ -5,7 +5,7 @@ import Fade from '@mui/material/Fade';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import {style} from './ProjectModalConstants'
+import {style} from './constants'
 
 
 const ProjectModal = ({ isShowModal, handleCloseModal, handleClick, project }) => {

@@ -18,6 +18,7 @@ const AuthPage = () => {
     }
   };
 
+
   return (
     <div className="root">
       <AuthForm

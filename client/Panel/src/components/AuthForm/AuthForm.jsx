@@ -4,8 +4,12 @@ import { LockOutlined as LockOutlinedIcon } from '@mui/icons-material';
 import AuthFormPasswordVisibility from '../AuthFormPasswordVisibility';
 import AuthFormSwitch from '../AuthFormSwitch';
 import Copyright from '../Copyright';
+import { useDispatch } from 'react-redux';
+import { resetError } from '../../store/Users/authSlice/authSlice';
 
-const AuthForm = ({ isSignIn, setIsSignIn, handleSubmit }) => {
+const AuthForm = ({ isSignIn, setIsSignIn, handleSubmit, isError }) => {
+  const dispatch = useDispatch()
+
   const [email, setEmail] = useState('');
   const [fullName, setFullName] = useState('');
   const [password, setPassword] = useState('');
@@ -62,6 +66,7 @@ const AuthForm = ({ isSignIn, setIsSignIn, handleSubmit }) => {
     setFullName('');
     setErrors({});
     setIsSignIn();
+    dispatch(resetError())
   };
 
   return (
@@ -133,7 +138,7 @@ const AuthForm = ({ isSignIn, setIsSignIn, handleSubmit }) => {
               ),
             }}
           />
-          <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+          <Button type='submit' color={!isError ? 'primary' : 'error'} fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
             {`Sign ${isSignIn ? 'in' : 'up'}`}
           </Button>
           <AuthFormSwitch handleSignIn={handleSignIn} isSignIn={isSignIn} />
