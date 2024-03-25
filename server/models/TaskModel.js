@@ -14,10 +14,6 @@ const TaskSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Project",
     },
-    status: {
-      type: String,
-      default: "pending",
-    },
     pos: {
       type: Number,
       default: null,

@@ -5,7 +5,6 @@ export const createProjectController = async (req, res) => {
     const doc = new ProjectSchema({
       description: req.body.description,
       title: req.body.title,
-      image: req.body.image,
       user: req.userId,
     });
 
@@ -21,7 +20,7 @@ export const getProjectsController = async (req, res) => {
   try {
     const { query } = req.query;
 
-    const regex = new RegExp(query, 'i'); // 'i' 
+    const regex = new RegExp(query, 'i'); 
 
     const projects = await ProjectSchema.find({
       user: req.userId,
@@ -70,7 +69,16 @@ export const updateProjectController = async (req, res) => {
   try {
     const projectId = req.params.id;
 
-    const updateData = req.body;
+    const { title, description } = req.body;;
+
+    const updateData = {};
+
+    if (title) {
+      updateData.title = title;
+    }
+    if (description) {
+      updateData.description = description;
+    }
 
     const updatedProject = await ProjectSchema.findByIdAndUpdate(
       projectId,

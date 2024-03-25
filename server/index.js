@@ -27,6 +27,8 @@ import {
   updateTaskController,
   createSubTaskController,
 } from "./controller/TaskController.js";
+import { createTaskValidation, createSubTaskValidation } from "./validations/task.js";
+import { createProjectValidation, updateProjectValidation } from "./validations/project.js";
 
 const PATH = process.env.DATABASE_URL.replace(
   "<password>",
@@ -49,17 +51,17 @@ app.post("/auth/login", loginController);
 app.post("/auth/register", registerValidation, registerController);
 app.get("/auth/me", checkAuth, meController);
 
-app.post("/projects", checkAuth, createProjectController);
+app.post("/projects", createProjectValidation ,checkAuth, createProjectController);
 app.get("/projects", checkAuth, getProjectsController);
 
 app.get("/project/:id", getProjectController);
 app.delete("/project/:id", deleteProjectsController);
-app.patch("/project/:id", updateProjectController);
+app.patch("/project/:id", updateProjectValidation ,updateProjectController);
 
-app.post("/projects/:id/tasks", checkAuth, createTaskController);
+app.post("/projects/:id/tasks", createTaskValidation ,checkAuth, createTaskController);
 app.get("/projects/:id/tasks", checkAuth, getTaskController);
 app.delete("/projects/tasks/:id", deleteTaskController);
-app.patch("/projects/tasks/:id", updateTaskController);
+app.patch("/projects/tasks/:id?", updateTaskController);
 
 app.get(
   "/projects/:projectId/tasks/:parentTaskId/subtasks",
@@ -71,7 +73,7 @@ app.post(
   checkAuth,
   createSubTaskController,
 );
-app.delete("/projects/tasks/subtasks/:id", checkAuth, deleteTaskController);
+app.delete("/projects/tasks/subtasks/:id", createSubTaskValidation , checkAuth, deleteTaskController);
 app.patch("/projects/tasks/subtasks/:id", checkAuth, updateTaskController);
 
 app.listen(port, (err) => {

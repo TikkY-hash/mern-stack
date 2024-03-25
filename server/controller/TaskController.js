@@ -5,6 +5,7 @@ export const createTaskController = async (req, res) => {
     const doc = new TaskSchema({
       user: req.userId,
       project: req.params.id,
+      title: req.body.title,
       pos: req.body.pos,
     });
 
@@ -21,24 +22,24 @@ export const createTaskController = async (req, res) => {
 
 export const getTaskController = async (req, res) => {
   try {
+    let sortOptions = {};
+    
+    if (req.query.sortBy) {
+      const sortBy = req.query.sortBy;
+      const sortOrder = req.query.sortOrder === 'asc' ? 1 : -1;
+      sortOptions = { [sortBy]: sortOrder };
+    }
+    
     const filters = {
       user: req.userId,
       project: req.params.id,
       parentTask: { $exists: false },
     };
-
-    if (req.query.status) {
-      if (req.query.status === "pending") {
-        filters.status = "pending";
-      } else if (req.query.status === "finished") {
-        filters.status = "finished";
-      }
-    }
-
+    
     const tasks = await TaskSchema.find(filters)
-      .sort({ pos: 1 })
+      .sort(sortOptions) 
       .select("-childrenTasks -project -user");
-
+    
     res.json(tasks);
   } catch (error) {
     console.error(error);
@@ -111,6 +112,7 @@ export const createSubTaskController = async (req, res) => {
     const newSubTask = new TaskSchema({
       project: req.params.projectId,
       user: req.userId,
+      title: req.body.title,
       parentTask: req.params.parentTaskId,
     });
 
