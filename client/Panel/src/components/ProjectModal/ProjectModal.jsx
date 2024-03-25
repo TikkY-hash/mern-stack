@@ -9,8 +9,8 @@ import {style} from './constants'
 
 
 const ProjectModal = ({ isShowModal, handleCloseModal, handleClick, project }) => {
-  const [title, setTitle] = useState(project?.title || '');
-  const [description, setDescription] = useState(project?.description || '');
+  const [title, setTitle] = useState( '');
+  const [description, setDescription] = useState( '');
 
   const isFormValid = title.trim() !== '' && description.trim() !== '';
 

@@ -7,10 +7,9 @@ import { useState } from 'react';
 import ProjectTabPanel from '../ProjectTabPanel';
 import ProjectModal from '../ProjectModal';
 import ProjectsListTabs from '../ProjectsListTabs';
-import ProjectListButtons from '../ProjectListButtons';
+import ProjectListButton from '../ProjectListButton';
 import './ProjectsList.scss';
 import EmptyStub from '../EmptyStub';
-import { deleteProjectReducer } from '../../store/Projects/projectsSlice/projectsSlice';
 import { deleteCurrentProject } from '../../store/Project/projectSlice/projectSlice';
 
 const ProjectsList = () => {
@@ -41,7 +40,7 @@ const ProjectsList = () => {
     event.stopPropagation();
 
     if (value) {
-      setValue(value - 1);
+      setValue((prevValue) => prevValue - 1);
       handleChange('', value - 1);
     }
 
@@ -60,7 +59,7 @@ const ProjectsList = () => {
           projects={projects}
           value={value}
         />
-        <ProjectListButtons handleShowModal={handleShowModal} />
+        <ProjectListButton handleShowModal={handleShowModal} />
       </div>
       {projects.length ? <ProjectTabPanel /> : <EmptyStub />}
       <ProjectModal

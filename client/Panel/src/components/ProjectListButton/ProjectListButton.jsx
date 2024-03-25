@@ -1,8 +1,8 @@
 import { Button } from '@mui/material';
 
-import './ProjectListButtons.scss';
+import './ProjectListButton.scss';
 
-const ProjectListButtons = ({ handleShowModal }) => (
+const ProjectListButton = ({ handleShowModal }) => (
   <div className="buttonWrapper">
     <Button
       variant="contained"
@@ -16,4 +16,4 @@ const ProjectListButtons = ({ handleShowModal }) => (
   </div>
 );
 
-export default ProjectListButtons;
+export default ProjectListButton;

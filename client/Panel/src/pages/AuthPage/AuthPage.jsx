@@ -23,7 +23,7 @@ const AuthPage = () => {
     <div className="root">
       <AuthForm
         isSignIn={isSignIn}
-        setIsSignIn={() => setIsSign(!isSignIn)}
+        setIsSignIn={() => setIsSign((prevState) => !prevState)}
         handleSubmit={handleSubmit}
         isError={isError}
       />

@@ -1,9 +1,9 @@
 import React from 'react';
 import IconButton from '@mui/material/IconButton';
-import { Sort as SortIcon, DragIndicator as DragIndicatorIcon } from '@mui/icons-material';
+import { CalendarToday as CalendarIcon, DragIndicator as DragIndicatorIcon } from '@mui/icons-material';
 
 const buttons = [
-  { key: 'createdAt', icon: <SortIcon /> },
+  { key: 'createdAt', icon: <CalendarIcon /> },
   { key: 'pos', icon: <DragIndicatorIcon /> },
 ];
 
