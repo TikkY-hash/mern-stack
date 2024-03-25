@@ -1,4 +1,4 @@
-import { addProjects, getProjects } from '../projectsThunk/projectsThunk';
+import { addProjects, getProjects, updateProject } from '../projectsThunk/projectsThunk';
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -32,6 +32,12 @@ export const projectsSlice = createSlice({
       })
       .addCase(addProjects.fulfilled, (state, action) => {
         state.projects.push(action.payload);
+      })
+      .addCase(updateProject.fulfilled, (state, action) => {
+        const updatedProjectIndex = state.projects.findIndex((project) => project._id === action.payload._id);
+        if (updatedProjectIndex !== -1) {
+          state.projects[updatedProjectIndex] = action.payload;
+        }
       });
   },
 });

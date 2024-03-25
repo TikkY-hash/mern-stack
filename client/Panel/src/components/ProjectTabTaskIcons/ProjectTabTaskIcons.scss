@@ -1,0 +1,13 @@
+.arrowIcon {
+  transform: rotate(0deg);
+
+  transition: 0.3s !important;
+}
+
+.arrowIconDown {
+  transform: rotate(180deg);
+}
+
+.dndWrapper {
+  margin-left: 12px;
+}

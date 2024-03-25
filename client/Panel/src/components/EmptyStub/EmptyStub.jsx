@@ -1,3 +1,5 @@
+import { Typography } from '@mui/material';
+
 import './EmptyStub.scss';
 
 const EmptyStub = () => (
@@ -21,7 +23,9 @@ const EmptyStub = () => (
         </g>
       </g>
     </svg>
-    <p className="emptyRootStubDescription">Your project list is empty. Create a new project.</p>
+    <Typography variant="body1" className="emptyRootStubDescription">
+      Your project list is empty. Create a new project.
+    </Typography>
   </div>
 );
 

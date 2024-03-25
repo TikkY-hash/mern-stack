@@ -1,0 +1,13 @@
+.projectTabs {
+  height: 100%;
+}
+
+.rootTabs {
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+  @media (max-width: 610px) {
+    flex-direction: column;
+  }
+}

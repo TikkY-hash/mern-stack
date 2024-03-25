@@ -1,0 +1,12 @@
+.subTasksWrapper {
+  margin-left: 50px;
+  width: 100%;
+
+  @media (max-width: 653px) {
+    margin-left: 0px;
+  }
+}
+
+.customTextFieldRoot {
+  padding-right: 0 !important;
+}

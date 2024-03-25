@@ -11,13 +11,6 @@ const initialState = {
 export const projectSlice = createSlice({
   name: 'project',
   initialState,
-  reducers: {
-    updateProjectField: (state, action) => {
-      const { fieldName, fieldValue } = action.payload;
-
-      state.project[fieldName] = fieldValue;
-    },
-  },
   extraReducers: (builder) => {
     builder
       .addCase(getProject.fulfilled, (state, action) => {
@@ -30,7 +23,5 @@ export const projectSlice = createSlice({
       });
   },
 });
-
-export const { updateProjectField } = projectSlice.actions;
 
 export default projectSlice.reducer;

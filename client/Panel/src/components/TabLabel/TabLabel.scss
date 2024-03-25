@@ -1,0 +1,27 @@
+.tabWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.projectTabTitle {
+  width: 150px;
+  text-align: start;
+
+  display: -webkit-box;
+  overflow: hidden;
+
+  -webkit-box-orient: vertical;
+  overflow-wrap: break-word;
+  -webkit-line-clamp: 1;
+}
+
+.iconButton {
+  cursor: pointer;
+  opacity: 1;
+
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

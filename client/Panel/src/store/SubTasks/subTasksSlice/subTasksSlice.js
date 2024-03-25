@@ -36,7 +36,8 @@ export const subTasksSlice = createSlice({
       })
       .addCase(getSubTasks.fulfilled, (state, action) => {
         state.loading = false;
-        const parentTaskId = action.payload[0].parentTask;
+
+        const parentTaskId = action.payload[0]?.parentTask;
 
         if (!state.subTasks[parentTaskId]) {
           state.subTasks[parentTaskId] = [];
