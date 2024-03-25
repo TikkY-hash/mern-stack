@@ -1,16 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { getProjectsSelector } from '../../store/Projects/projectsSelectors/projectsSelectors';
 import { addProjects, deleteProject, updateProject } from '../../store/Projects/projectsThunk/projectsThunk';
-import { resetToken } from '../../store/Users/authSlice/authSlice';
 import { getProject } from '../../store/Project/projectThunk/projectThunk';
 import ProjectListTitle from '../ProjectListTitle';
 import { useState } from 'react';
-
 import ProjectTabPanel from '../ProjectTabPanel';
 import ProjectModal from '../ProjectModal';
 import ProjectsListTabs from '../ProjectsListTabs';
 import ProjectListButtons from '../ProjectListButtons';
-
 import './ProjectsList.scss';
 import EmptyStub from '../EmptyStub';
 
@@ -22,7 +19,7 @@ const ProjectsList = () => {
 
   const projects = useSelector(getProjectsSelector);
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (_, newValue) => {
     const id = projects[newValue]._id;
     dispatch(getProject({ id }));
     setValue(newValue);
@@ -49,11 +46,10 @@ const ProjectsList = () => {
     dispatch(deleteProject({ id }));
   };
 
-
   return (
     <div className="rootTabs">
       <div className="projectTabs">
-       <ProjectListTitle/>
+        <ProjectListTitle />
         <ProjectsListTabs
           handleChange={handleChange}
           handleDeleteProject={handleDeleteProject}
@@ -61,7 +57,7 @@ const ProjectsList = () => {
           projects={projects}
           value={value}
         />
-        <ProjectListButtons  handleShowModal={handleShowModal} />
+        <ProjectListButtons handleShowModal={handleShowModal} />
       </div>
       {projects.length ? <ProjectTabPanel /> : <EmptyStub />}
       <ProjectModal

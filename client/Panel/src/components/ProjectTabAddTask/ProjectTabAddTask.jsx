@@ -24,7 +24,7 @@ const ProjectTabAddTask = ({ projectId, placeholder, label, isSubTask = false, t
       label={label}
       placeholder={placeholder}
       value={taskTitle}
-      onChange={(e) => setTask(e.target.value)}
+      onChange={(event) => setTask(event.target.value)}
       onKeyDown={handleKeyDown}
       sx={{
         marginBottom: '12px',

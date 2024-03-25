@@ -5,8 +5,6 @@ import { getTasksSelector } from '../../store/Tasks/tasksSelectors/tasksSelector
 import { getTasks, updateTask } from '../../store/Tasks/tasksThunk/tasksThunk';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { updateTasksOrder } from '../../store/Tasks/tasksSlice/tasksSlice';
-
-import './ProjectTabTasks.scss';
 import ProjectTabAddTask from '../ProjectTabAddTask';
 
 const ProjectTabTasks = ({ projectId }) => {
@@ -54,7 +52,6 @@ const ProjectTabTasks = ({ projectId }) => {
           )}
         </Droppable>
       </DragDropContext>
-
       <ProjectTabAddTask projectId={projectId} label="Add task" placeholder="Add task" />
     </ul>
   );

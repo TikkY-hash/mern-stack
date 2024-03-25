@@ -3,7 +3,6 @@ import AuthForm from '../../components/AuthForm';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuthError } from '../../store/Users/authSelectors/authSelector';
-
 import { authLogin, authRegister } from '../../store/Users/authThunk/authThunk';
 
 const AuthPage = () => {

@@ -7,21 +7,26 @@ import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
 import { resetToken } from '../../store/Users/authSlice/authSlice';
 
-export default function ProjectsHeader() {
-  const dispatch = useDispatch()
+const ProjectsHeader = () => {
+  const dispatch = useDispatch();
 
-  const handleLogout = () => dispatch(resetToken());  
+  const handleLogout = () => dispatch(resetToken());
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, position: 'sticky', top: '0px', zIndex: 2 }}>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Mern 
+            Mern
           </Typography>
-          <Button color="inherit" onClick={handleLogout}>Logout</Button>
+          <Button color="inherit" onClick={handleLogout}>
+            Logout
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>
   );
 }
+
+
+export default ProjectsHeader

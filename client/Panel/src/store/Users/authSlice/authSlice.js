@@ -19,9 +19,10 @@ export const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(authRegister.pending, (state) => {
+      .addCase(authRegister.pending, (state, action) => {
         state.loading = true;
         state.error = null;
+        state.token = action.payload;
       })
       .addCase(authRegister.fulfilled, (state, action) => {
         state.loading = false;

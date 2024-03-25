@@ -56,7 +56,7 @@ const ProjectTabTasksListItem = ({ task, projectId, isSubTask = false, position 
             label="Task"
             placeholder="Task"
             value={taskTitle}
-            onChange={(e) => setTask(e.target.value)}
+            onChange={(event) => setTask(event.target.value)}
             onKeyDown={handleKeyDown}
             sx={{
               marginBottom: '12px',

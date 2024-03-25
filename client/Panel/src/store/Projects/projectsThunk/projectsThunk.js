@@ -12,12 +12,15 @@ export const getProjects = createAsyncThunk('projects/get', async (params, thunk
       params,
     });
 
-    thunkAPI.dispatch(getProject({ id: response.data[0]._id }));
+    if (response.data.length) {
+      thunkAPI.dispatch(getProject({ id: response.data[0]._id }));
+    }
 
     thunkAPI.dispatch(updateStatusAndVisibility({ status: 'success', isShow: true }));
 
     return response.data;
   } catch (error) {
+    console.log(error);
     thunkAPI.dispatch(updateStatusAndVisibility({ status: 'error', isShow: true }));
     return thunkAPI.rejectWithValue({ error: error.message });
   }
@@ -27,7 +30,9 @@ export const addProjects = createAsyncThunk('projects/post', async ({ projectDat
   try {
     const response = await axios.post('projects', projectData);
 
-    if (!selectedTab) {
+    const project = thunkAPI.getState().project.project;
+
+    if (!selectedTab && Object.keys(project).length === 0) {
       const id = response.data._id;
       thunkAPI.dispatch(getProject({ id }));
     }

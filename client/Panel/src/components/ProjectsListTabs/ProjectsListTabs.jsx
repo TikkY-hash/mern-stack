@@ -13,7 +13,7 @@ const ProjectsListTabs = ({ value, handleChange, projects, handleDeleteProject, 
     aria-label="Vertical tabs example"
     sx={{
       width: 300,
-      height: 'calc(100vh - 200px)',
+      height: 'calc(100vh - 210px)',
       borderRight: 1,
       borderColor: 'divider',
     }}
@@ -26,6 +26,7 @@ const ProjectsListTabs = ({ value, handleChange, projects, handleDeleteProject, 
         }
         {...a11yProps(project._id)}
         key={project._id}
+        className="tab"
         sx={{
           textTransform: 'none',
           margin: '12px 12px',
@@ -36,9 +37,9 @@ const ProjectsListTabs = ({ value, handleChange, projects, handleDeleteProject, 
             backgroundColor: '#e0e0e0',
             color: '#333',
           },
-          '&:hover': { 
-            backgroundColor: '#f5f5f5', 
-            color: '#333', 
+          '&:hover': {
+            backgroundColor: '#f5f5f5',
+            color: '#333',
           },
         }}
       />

@@ -1,25 +1,12 @@
 import { useEffect, useState } from 'react';
-
 import Modal from '@mui/material/Modal';
 import Backdrop from '@mui/material/Backdrop';
 import Fade from '@mui/material/Fade';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import {style} from './ProjectModalConstants'
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '100%',
-  maxWidth: '400px',
-  borderRadius: '8px',
-  padding: '24px',
-  boxShadow: 24,
-  p: 4,
-};
 
 const ProjectModal = ({ isShowModal, handleCloseModal, handleClick, project }) => {
   const [title, setTitle] = useState(project?.title || '');
@@ -62,7 +49,7 @@ const ProjectModal = ({ isShowModal, handleCloseModal, handleClick, project }) =
             label="Title"
             fullWidth
             margin="normal"
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(event) => setTitle(event.target.value)}
             value={title}
           />
           <TextField
@@ -72,7 +59,7 @@ const ProjectModal = ({ isShowModal, handleCloseModal, handleClick, project }) =
             multiline
             rows={4}
             margin="normal"
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(event) => setDescription(event.target.value)}
             value={description}
           />
           <Box sx={{ textAlign: 'center', mt: 2 }}>

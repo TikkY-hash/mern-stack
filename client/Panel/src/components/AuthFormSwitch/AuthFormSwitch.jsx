@@ -5,7 +5,7 @@ const AuthFormSwitch = ({ isSignIn, handleSignIn }) => (
     <Grid item>
       <Button style={{ textTransform: 'none' }} onClick={handleSignIn}>
         <Typography variant="body2">
-          {isSignIn ? "Don't have an account? Sign Up" : 'Already have an account? Sign in'}
+          {isSignIn ? 'Don\'t have an account? Sign Up' : 'Already have an account? Sign in'}
         </Typography>
       </Button>
     </Grid>

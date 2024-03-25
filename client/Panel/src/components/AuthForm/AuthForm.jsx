@@ -106,7 +106,6 @@ const AuthForm = ({ isSignIn, setIsSignIn, handleSubmit }) => {
               fullWidth
               id="fullName"
               label="Full Name"
-              autoFocus
               value={fullName}
               onChange={handleFullNameChange}
             />
@@ -135,7 +134,7 @@ const AuthForm = ({ isSignIn, setIsSignIn, handleSubmit }) => {
             }}
           />
           <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-            Sign In
+            {`Sign ${isSignIn ? 'in' : 'up'}`}
           </Button>
           <AuthFormSwitch handleSignIn={handleSignIn} isSignIn={isSignIn} />
         </Box>

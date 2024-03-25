@@ -1,5 +1,14 @@
 .projectTabs {
   height: 100%;
+  width: 100%;
+  max-width: 300px;
+  position: sticky;
+  top: 65px;
+
+  @media (max-width: 610px) {
+    position: static;
+    max-width: 100%;
+  }
 }
 
 .rootTabs {

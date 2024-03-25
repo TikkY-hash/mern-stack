@@ -1,2 +1,2 @@
 import ProjectListTitle from './ProjectListTitle';
-export default ProjectListTitle
+export default ProjectListTitle;
