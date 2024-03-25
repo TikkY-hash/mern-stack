@@ -13,6 +13,7 @@ const ProjectTabPanel = () => {
       sx={{
         marginTop: '12px',
         marginLeft: '30px',
+        overflowX: 'hidden'
       }}
     >
       <ProjectTabPanelDescription description={project.description} />
