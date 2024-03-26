@@ -22,14 +22,6 @@ export const createTaskController = async (req, res) => {
 
 export const getTaskController = async (req, res) => {
   try {
-    let sortOptions = {};
-    
-    if (req.query.sortBy) {
-      const sortBy = req.query.sortBy;
-      const sortOrder = req.query.sortOrder === 'asc' ? 1 : -1;
-      sortOptions = { [sortBy]: sortOrder };
-    }
-    
     const filters = {
       user: req.userId,
       project: req.params.id,
@@ -37,7 +29,7 @@ export const getTaskController = async (req, res) => {
     };
     
     const tasks = await TaskSchema.find(filters)
-      .sort(sortOptions) 
+      .sort({pos : 1}) 
       .select("-childrenTasks -project -user");
     
     res.json(tasks);
