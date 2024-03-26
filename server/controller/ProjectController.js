@@ -18,13 +18,8 @@ export const createProjectController = async (req, res) => {
 
 export const getProjectsController = async (req, res) => {
   try {
-    const { query } = req.query;
-
-    const regex = new RegExp(query, 'i'); 
-
     const projects = await ProjectSchema.find({
       user: req.userId,
-      title: { $regex: regex },
     }).select('-tasks -user');
 
     res.json(projects);
