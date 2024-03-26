@@ -7,6 +7,21 @@
   animation: fadeIn 0.3s;
 }
 
+.css-1cgx7kx-MuiTabs-scroller {
+  @media (max-width: 610px) {
+    width: 100% !important;
+  }
+}
+
+.tab {
+  @media (max-width: 610px) {
+    width: 95% !important;
+    max-width: 100% !important;
+  }
+}
+
+
+
 
 @keyframes fadeIn {
   0% {
